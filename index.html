@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <style>
+        img {
+            display: none;
+        }
+
+        /*!*.c{*!*/
+        /*!*    width: 1920px;*!*/
+        /*!*    height: 1080px;*!*/
+        /*!*    display: block;*!*/
+        /*!*    background: url("./img/大海波涛汹涌.png") no-repeat center;*!*/
+        /*!*}*!*/
+
+        /*body{*/
+        /*    background: url("./img/夜山.png") ;*/
+        /*    !*background-size: 100% 100%;*!*/
+        /*    !*background-size: cover;*!*/
+        /*    !*!*background-repeat: no-repeat;*!*!*/
+        /*    !*background-attachment: fixed;  !*关键*!*!*/
+        /*    !*background-position: center;*!*/
+        /*    !*top:0;*!*/
+        /*    !*left: 0;*!*/
+        /*    !*height:100vh;*!*/
+        /*    !*width:100vm;*!*/
+        /*    !*min-width: 1600px;*!*/
+        /*    !*z-index: -10;*!*/
+        /*    !*zoom:1;*!*/
+        /*    !*background-color: #2d3a4b;*!*/
+        /*    !*background-size: 100vm 100vh;*!*/
+        /*    !*image-rendering: -webkit-optimize-contrast;*!*/
+        /*}*/
+
+
+        h9 {
+            color: black;
+        }
+
+        h7 {
+            color: chartreuse;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        video {
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+            /*加滤镜*/
+            /*filter: blur(15px); //背景模糊设置 */
+            /*-webkit-filter: grayscale(100%);*/
+            /*filter:grayscale(100%); //背景灰度设置*/
+            z-index: -11
+        }
+
+        source {
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        span {
+            color: beige;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+<!--<div  class="c">-->
+<div class="box">
+    <!-- autoplay 自动播放  loop循环播放  muted 声音 preload 预加载 -->
+    <video autoplay loop muted="" preload>
+        <source src="./img/section1.mp4">
+    </video>
+
+    <h9>趋吉避凶，少数情况，在意识中，非做不可，需要趋凶避吉</h9>
+    <br/>
+    <h9>算的卦好，可以信，算的卦不好，不要信，切记！！！</h9>
+    <br/>
+    <h9>自己的命运自己把握，自己去改变，如果自己的命运太差，那就听从卦象所说，去改变自己的命运，虽然改变有限，但是该改变还要改变的</h9>
+
+    <br/>
+    <br/>
+    <input class="tx" id="ipt" type="text" style="width:400px; height:25px;" placeholder="请输入您要算卦的内容？">
+
+    <button onclick="zhuanpu()">开始</button>
+    <br/>
+    <br/>
+    <span>微信：15237295636</span>
+    <br/>
+
+
+    <div>
+        <br/>
+        <h9 id="begin"></h9>
+
+        <br/>
+        <br/>
+
+
+        <h9 id="s1"></h9>
+        <br/>
+        <h9 id="s2"></h9>
+        <br/>
+        <h9 id="s3"></h9>
+        <br/>
+        <h9 id="s4"></h9>
+        <br/>
+        <h9 id="s5"></h9>
+        <br/>
+        <h9 id="s6"></h9>
+
+        <br/>
+        <br/>
+
+        <h7 id="a1"></h7>
+        <br/>
+        <h7 id="a2"></h7>
+        <br/>
+        <h7 id="a3"></h7>
+        <br/>
+        <h7 id="b1"></h7>
+        <br/>
+        <h7 id="b2"></h7>
+        <br/>
+        <br>
+        <div>
+            <img src="./img/bga.png" id="test">;
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+    function zhuanpu() {
+        var str = document.getElementById('ipt').value;
+        if (str == '') {
+            alert("您没有输入内容，请输入内容")
+            window.location.reload()
+        }
+
+        document.getElementById('begin').innerText = "成卦如下:"
+
+        var m = 3;
+        var n = 2;
+
+        //第1爻次
+        var one1 = twoOrThree();
+        var two1 = twoOrThree();
+        var three1 = twoOrThree();
+
+        var s1 = one1 + two1 + three1;
+
+        if (s1 == 6) {
+            document.getElementById('s1').innerText = (s1 + "— —" + "变" + "——");
+        } else if (s1 == 7) {
+            document.getElementById('s1').innerText = (s1 + "——" + "|||" + "——");
+        } else if (s1 == 8) {
+            document.getElementById('s1').innerText = (s1 + "— —" + "|||" + "— —");
+        } else if (s1 == 9) {
+            document.getElementById('s1').innerText = (s1 + "——" + "变" + "— —");
+        }
+
+        //第2爻次
+        var one2 = twoOrThree();
+        var two2 = twoOrThree();
+        var three2 = twoOrThree();
+
+        var s2 = one2 + two2 + three2;
+
+        if (s2 == 6) {
+            document.getElementById('s2').innerText = (s2 + "— —" + "变" + "——");
+        } else if (s2 == 7) {
+            document.getElementById('s2').innerText = (s2 + "——" + "|||" + "——");
+        } else if (s2 == 8) {
+            document.getElementById('s2').innerText = (s2 + "— —" + "|||" + "— —");
+        } else if (s2 == 9) {
+            document.getElementById('s2').innerText = (s2 + "——" + "变" + "— —");
+        }
+
+        //第3爻次
+        var one3 = twoOrThree();
+        var two3 = twoOrThree();
+        var three3 = twoOrThree();
+
+        var s3 = one3 + two3 + three3;
+
+        if (s3 == 6) {
+            document.getElementById('s3').innerText = (s3 + "— —" + "变" + "——");
+        } else if (s3 == 7) {
+            document.getElementById('s3').innerText = (s3 + "——" + "|||" + "——");
+        } else if (s3 == 8) {
+            document.getElementById('s3').innerText = (s3 + "— —" + "|||" + "— —");
+        } else if (s3 == 9) {
+            document.getElementById('s3').innerText = (s3 + "——" + "变" + "— —");
+        }
+
+        //第4爻次
+        var one4 = twoOrThree();
+        var two4 = twoOrThree();
+        var three4 = twoOrThree();
+
+        var s4 = one4 + two4 + three4;
+
+        if (s4 == 6) {
+            document.getElementById('s4').innerText = (s4 + "— —" + "变" + "——");
+        } else if (s4 == 7) {
+            document.getElementById('s4').innerText = (s4 + "——" + "|||" + "——");
+        } else if (s4 == 8) {
+            document.getElementById('s4').innerText = (s4 + "— —" + "|||" + "— —");
+        } else if (s4 == 9) {
+            document.getElementById('s4').innerText = (s4 + "——" + "变" + "— —");
+        }
+
+
+        //第5爻次
+        var one5 = twoOrThree();
+        var two5 = twoOrThree();
+        var three5 = twoOrThree();
+
+        var s5 = one5 + two5 + three5;
+
+        if (s5 == 6) {
+            document.getElementById('s5').innerText = (s5 + "— —" + "变" + "——");
+        } else if (s5 == 7) {
+            document.getElementById('s5').innerText = (s5 + "——" + "|||" + "——");
+        } else if (s5 == 8) {
+            document.getElementById('s5').innerText = (s5 + "— —" + "|||" + "— —");
+        } else if (s5 == 9) {
+            document.getElementById('s5').innerText = (s5 + "——" + "变" + "— —");
+        }
+
+        //第6爻次
+        var one6 = twoOrThree();
+        var two6 = twoOrThree();
+        var three6 = twoOrThree();
+
+        var s6 = one6 + two6 + three6;
+
+        if (s6 == 6) {
+            document.getElementById('s6').innerText = (s6 + "— —" + "变" + "——");
+        } else if (s6 == 7) {
+            document.getElementById('s6').innerText = (s6 + "——" + "|||" + "——");
+        } else if (s6 == 8) {
+            document.getElementById('s6').innerText = (s6 + "— —" + "|||" + "— —");
+        } else if (s6 == 9) {
+            document.getElementById('s6').innerText = (s6 + "——" + "变" + "— —");
+        }
+
+
+        var s = s1 + s2 + s3 + s4 + s5 + s6;
+        document.getElementById('a1').innerText = ("爻次总数为：" + s);
+        var ss = 55 - s;
+        document.getElementById('a2').innerText = ("被55减去后为：" + ss);
+
+        document.getElementById('a3').innerText = ("重要提醒：第一爻放在最下面,然后依次向上垒，第六爻最上面");
+
+
+        switch (ss) {
+            case 1:
+                document.getElementById('b1').innerText = ("解答在第一爻");
+                break;
+            case 2:
+                document.getElementById('b1').innerText = ("解答在第二爻");
+                break;
+            case 3:
+                document.getElementById('b1').innerText = ("解答在第三爻");
+                break;
+            case 4:
+                document.getElementById('b1').innerText = ("解答在第四爻");
+                break;
+            case 5:
+                document.getElementById('b1').innerText = ("解答在第五爻");
+                break;
+            case 6:
+                document.getElementById('b1').innerText = ("解答在第六爻");
+                break;
+
+            case 12:
+                document.getElementById('b1').innerText = ("解答在第一爻");
+                break;
+            case 11:
+                document.getElementById('b1').innerText = ("解答在第二爻");
+                break;
+            case 10:
+                document.getElementById('b1').innerText = ("解答在第三爻");
+                break;
+            case 9:
+                document.getElementById('b1').innerText = ("解答在第四爻");
+                break;
+            case 8:
+                document.getElementById('b1').innerText = ("解答在第五爻");
+                break;
+            case 7:
+                document.getElementById('b1').innerText = ("解答在第六爻");
+                break;
+
+            case 13:
+                document.getElementById('b1').innerText = ("解答在第一爻");
+                break;
+            case 14:
+                document.getElementById('b1').innerText = ("解答在第二爻");
+                break;
+            case 15:
+                document.getElementById('b1').innerText = ("解答在第三爻");
+                break;
+            case 16:
+                document.getElementById('b1').innerText = ("解答在第四爻");
+                break;
+            case 17:
+                document.getElementById('b1').innerText = ("解答在第五爻");
+                break;
+            case 18:
+                document.getElementById('b1').innerText = ("解答在第六爻");
+                break;
+            case 19:
+                document.getElementById('b1').innerText = ("解答在第六爻");
+                break;
+            default:
+                break;
+        }
+
+        document.getElementById('test').style.display = "block"
+
+    }
+
+    //2和3之间的随机数
+    function twoOrThree() {
+        return Math.trunc((10 * Math.random()) % 2 + 2);
+    }
+
+
+</script>
+
+
+</body>
