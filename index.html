@@ -78,7 +78,7 @@
     <br/>
     <input class="tx" id="ipt" type="text" style="width:400px; height:25px;" placeholder="请输入您要占卜的内容吧？">
     <br/>   
-    <input class="tx" id="iptt" type="text" style="width:200px; height:25px;" placeholder="请输入占卜密码">
+    <input  id="pa" type="number" style="width:200px; height:25px;" placeholder="请输入占卜密码">
     
     <button  onclick="zhuanpu()">开始</button>
     <br/>
@@ -140,12 +140,12 @@
 <script>
     function zhuanpu() {
         var str = document.getElementById('ipt').value;
-        var strt = document.getElementById('iptt').value;
+        var pa = document.getElementById('pa').value;
          if (str == '') {
             alert("您没有输入内容，请输入内容")
             window.location.reload()
         }
-        if (!strt == '162688') {
+        if (pa != 162688) {
             alert("您没有输入密码，请输入密码")
             window.location.reload()
         }
