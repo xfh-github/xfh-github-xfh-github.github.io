@@ -344,7 +344,61 @@
     //2和3之间的随机数
     function twoOrThree() {
         
-        return Math.trunc(Math.floor(Math.random()*2+2));
+       var b = parseInt(Math.floor(Math.random()*2+2));
+    var str = new Date().getMilliseconds().toString();
+    str = str.charAt(str.length - 1);
+    var a = parseInt(str);
+
+    document.write(a);
+    document.write("参考");
+    document.write(b);
+    
+    
+    if(b==2){
+    switch(a){ 
+        case 1:
+            return 3;
+            break;   
+        case 3: 
+            return 3;
+            break;
+        case 5: 
+            return 3;
+            break;
+        case 7: 
+            return 3;
+            break;
+        case 9:
+            return 3; 
+            break;
+        default:
+            return 2;    
+    }
+    }
+    if(b==3){
+        switch(a){ 
+        case 1:
+            return 2;   
+            break;
+        case 3: 
+            return 2;
+            break;
+        case 5: 
+            return 2;
+            break;
+        case 7: 
+            return 2;
+            break;
+        case 9:
+            return 2; 
+            break;
+        default:
+            return 3;    
+    }
+
+    }
+
+
     }
 
 
